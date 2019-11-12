@@ -15,9 +15,10 @@ namespace SiteNews
 
             routes.MapRoute(
                 name: "Default",
-                url: "{area}/{controller}/{action}/{id}",
-                defaults: new {area = "News", controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "SiteNews.Areas.News.Controllers" }
+            ).DataTokens["Area"] = "News";
         }
     }
 }

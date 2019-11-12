@@ -6,6 +6,9 @@
 <h2>index</h2>
 <form action="Index" method="post">
     <textarea name="text" placeholder="Text"></textarea>
-    <input name="imageURL" type="file" />
+    <input id="imgInp" name="imageURL" type="file" enctype='multipart/form-data' />
     <button>Опубликовать</button>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/script.js"></script>
 </form>
