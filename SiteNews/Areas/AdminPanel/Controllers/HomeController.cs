@@ -17,14 +17,36 @@ namespace SiteNews.Areas.AdminPanel.Controllers
         }
 
         [HttpPost]
+        public ActionResult Index(string text, HttpPostedFileBase upload)
+        {
+            if (upload != null)
+            {
+                // получаем имя файла
+                string fileName = System.IO.Path.GetFileName(upload.FileName);
+                // сохраняем файл в папку Files в проекте
+                upload.SaveAs(Server.MapPath("~/Files/" + fileName));
+
+                using (var context = new NewsContext())
+                {
+                    context.News.Add(new Models.News { Text = text, ImagePath = "Files/" + fileName });
+                    context.SaveChanges();
+                }
+
+            }
+            return RedirectToAction("Index");
+        }
+
+
+      /*  [HttpPost]
         public ActionResult Index(string text, string imageUrl)
         {
-            using(var context = new NewsContext())
+           
+            using (var context = new NewsContext())
             {
                 context.News.Add(new Models.News { Text = text, ImagePath = imageUrl });
                 context.SaveChanges();
             }
             return View();
-        }
+        }*/
     }
 }

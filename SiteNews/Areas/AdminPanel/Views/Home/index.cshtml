@@ -4,11 +4,14 @@
 }
 
 <h2>index</h2>
-<form action="Index" method="post">
-    <textarea name="text" placeholder="Text"></textarea>
-    <input id="imgInp" name="imageURL" type="file" enctype='multipart/form-data' />
-    <button>Опубликовать</button>
 
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/script.js"></script>
-</form>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <textarea name="text" placeholder="Text"></textarea>
+    <input type="file" name="upload" />
+    <br>
+    <input type="submit" value="Загрузить" />
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/script.js"></script>
