@@ -37,16 +37,5 @@ namespace SiteNews.Areas.AdminPanel.Controllers
         }
 
 
-      /*  [HttpPost]
-        public ActionResult Index(string text, string imageUrl)
-        {
-           
-            using (var context = new NewsContext())
-            {
-                context.News.Add(new Models.News { Text = text, ImagePath = imageUrl });
-                context.SaveChanges();
-            }
-            return View();
-        }*/
     }
 }
